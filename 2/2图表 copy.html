@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/echarts.min.js"></script>
+    <script>"js/jquery.js"</script>
+</head>
+<body>
+    <div id="main" style="width: 1200px;height:700px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例  var myChart=echarts.init(document.getElementById('main'));
+  $.get('static/json/中华人民共和国.json',function(geoJson)){
+echarts.registerMap('中华人民共和国',geoJson)
+    var option2={
+      title:{
+        series:{
+          type:'map',
+          map:'中华人民共和国'
+        }；
+        myChart2.setOption(option2);
+      }
+    }
+  }
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+      var option = {
+
+  title: {
+    text: "1&2数据对比",
+    left: "470",
+    top: "left",
+    textStyle: {
+      fontSize: 30,
+    }
+  
+  },
+  legend: {
+    data: ['1', '2'],
+top:675,
+left:545,
+  },
+  
+  radar: {
+     shape: 'circle',
+      center: ['50%', '52%'],
+    indicator: [
+      { name: '身高', max: 200 },
+      { name: '体重', max: 200 },
+      { name: '年龄', max: 50 },
+      { name: '收入', max: 10000 },
+      { name: '支出', max: 5000 },
+      { name: '工作时间', max: 10 }
+    ]
+  },
+  series: [
+    {
+      name: '1 vs 2',
+      type: 'radar',
+      data: [
+        {
+          value: [182, 156, 34, 9000, 3000, 6],
+          name: '1'
+        },
+        {
+          value: [176, 144, 28, 8500, 3700, 5],
+          name: '2'
+        }
+      ],
+      label:{
+        show:true
+      },
+      lineStyle:{
+        width:8
+      }
+    
+    
+ 
+    }
+  ]
+
+};
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+</body>
+</html>
+
+

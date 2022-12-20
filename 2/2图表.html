@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 1200px;height:700px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+      var option = {
+
+  title: {
+    text: "C罗&梅西数据对比",
+    left: "470",
+    top: "left",
+    textStyle: {
+      fontSize: 30,
+    }
+  
+  },
+  legend: {
+    data: ['c罗', '梅西'],
+top:675,
+left:545,
+  },
+  
+  radar: {
+     shape: 'circle',
+      center: ['50%', '52%'],
+    indicator: [
+      { name: '比赛场数', max: 1100 },
+      { name: '进球数', max: 900 },
+      { name: '助攻次数', max: 400 },
+      { name: '每个进球所需时间', max: 120 },
+      { name: '胜场', max: 800 },
+      { name: '负场', max: 200 }
+    ]
+  },
+  series: [
+    {
+      name: 'c罗 vs 梅西',
+      type: 'radar',
+      data: [
+        {
+          value: [1000, 789, 348, 103.92, 683, 126],
+          name: 'c罗'
+        },
+        {
+          value: [778, 725, 218, 111.81, 666, 146],
+          name: '梅西'
+        }
+      ],
+      label:{
+        show:true
+      },
+      lineStyle:{
+        width:8
+      }
+    
+    
+ 
+    }
+  ]
+};
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+</body>
+</html>
+
+
